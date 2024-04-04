@@ -1,12 +1,14 @@
 import axios from "axios";
 import LeftBoard from "../sub/LeftBoard";
-import MiddleBoard from "../sub/middleBoard";
+import MiddleBoard from "../sub/MiddleBoard";
+
 import { useEffect, useRef, useState } from "react";
 import RightBoard from "../sub/RightBoard";
 import { useSelector } from "react-redux";
 // const url = "http://localhost:8009/api";
 import { io } from "socket.io-client";
 import { baseUrl } from "../../utils/constant";
+// import MiddleBoard from "../sub/middleBoard";
 
 function Dashboard() {
   const [messages, setMessgaes] = useState({});
