@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { baseUrl } from "../../utils/constant";
 
-const url = "http://localhost:8009/api/user/register";
+// const url = "http://localhost:8009/api/user/register";
+const url = `${baseUrl}/api/user/register`;
 
 function Signup() {
   const navigate = useNavigate();

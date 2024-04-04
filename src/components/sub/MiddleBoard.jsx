@@ -4,8 +4,9 @@ import { FiSend } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { baseUrl } from "../../utils/constant";
 
-const url = "http://localhost:8009/";
+const url = `${baseUrl}/`;
 
 function MiddleBoard({
   messages,
@@ -31,7 +32,7 @@ function MiddleBoard({
     });
     e.preventDefault();
     await axios
-      .post(`http://localhost:8009/api/message`, {
+      .post(`${baseUrl}/api/message`, {
         chatId: messages?.receiver?.chatId || "new",
         message: messgae,
         senderId: userDetail._id,

@@ -1,5 +1,6 @@
 import "../../App.css";
-const url = "http://localhost:8009/";
+import { baseUrl } from "../../utils/constant";
+// const url = "http://localhost:8009/";
 
 function RightBoard({ users, fetchConvo }) {
   // console.log(users);
@@ -14,7 +15,7 @@ function RightBoard({ users, fetchConvo }) {
             className=" flex justify-around gap-8 items-center border-b-[0.5px] border-slate-500  pb-2"
           >
             <img
-              src={`${url}${user.pic}`}
+              src={`${baseUrl}/${user.pic}`}
               className=" grow-0 w-12 h-12 rounded-full border-2 border-primary p-[2px] object-cover object-top"
             />
             <div className=" grow">

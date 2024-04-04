@@ -4,9 +4,9 @@ import MiddleBoard from "../sub/middleBoard";
 import { useEffect, useRef, useState } from "react";
 import RightBoard from "../sub/RightBoard";
 import { useSelector } from "react-redux";
-const url2 = "http://localhost:8009/api/message";
-const url = "http://localhost:8009/api";
+// const url = "http://localhost:8009/api";
 import { io } from "socket.io-client";
+import { baseUrl } from "../../utils/constant";
 
 function Dashboard() {
   const [messages, setMessgaes] = useState({});
@@ -25,7 +25,7 @@ function Dashboard() {
     // console.log(id);
     // console.log(ReceiverUser);
     handleMenu("message");
-    await axios.get(`${url}/message/${id}`).then((res) => {
+    await axios.get(`${baseUrl}/api/message/${id}`).then((res) => {
       setLoading(false);
       // console.log(res.data);
       setMessgaes({ messages: res.data, receiver: ReceiverUser });
@@ -40,7 +40,7 @@ function Dashboard() {
     // console.log(userDetail._id);
     // console.log(ReceiverUser);
     await axios
-      .get(`${url}/message/${id}`, {
+      .get(`${baseUrl}/api/message/${id}`, {
         params: {
           senderId: userDetail?._id,
           receiverId: ReceiverUser.user._id,
@@ -58,7 +58,7 @@ function Dashboard() {
   useEffect(() => {
     axios
       .get(
-        `${url}/user`,
+        `${baseUrl}/api/user`,
 
         {
           headers: {
@@ -74,7 +74,7 @@ function Dashboard() {
   }, []);
 
   useEffect(() => {
-    setSocket(io("http://localhost:8009"));
+    setSocket(io(`${baseUrl}`));
   }, []);
   // console.log(socket);
   // console.log(userDetail?._id);

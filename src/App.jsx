@@ -10,6 +10,7 @@ import ProtectedForm from "./components/sub/ProtectedForm";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetail } from "./redux/userSlice";
 import axios from "axios";
+import { baseUrl } from "./utils/constant";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function App() {
   useEffect(() => {
     if (token) {
       axios
-        .get(`http://localhost:8009/api/singleuser`, {
+        .get(`${baseUrl}/api/singleuser`, {
           headers: {
             authorization: `bearer ${token}`,
           },

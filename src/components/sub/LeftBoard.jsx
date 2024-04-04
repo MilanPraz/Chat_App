@@ -7,8 +7,9 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { setUserDetail } from "../../redux/userSlice";
+import { baseUrl } from "../../utils/constant";
 
-const url = "http://localhost:8009/";
+const url = `${baseUrl}/`;
 
 function LeftBoard({ fetchMessages }) {
   const [toggle, setToggle] = useState(false);
@@ -40,7 +41,7 @@ function LeftBoard({ fetchMessages }) {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          `http://localhost:8009/api/chat/${userDetail?._id}`
+          `${baseUrl}/api/chat/${userDetail?._id}`
         );
         // console.log(response.data);
         setChatUsers(response.data);
@@ -69,7 +70,7 @@ function LeftBoard({ fetchMessages }) {
     fd.append("pic", picture);
     fd.append("id", userDetail?._id);
     // console.log(userDetail?._id);
-    fetch(`http://localhost:8009/api/changeimage`, {
+    fetch(`${baseUrl}/api/changeimage`, {
       method: "PUT",
       body: fd,
     })

@@ -3,8 +3,10 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUserDetail } from "../../redux/userSlice";
+import { baseUrl } from "../../utils/constant";
 
-const url = "http://localhost:8009/api/user/login";
+// const url = "http://localhost:8009/api/user/login";
+const url = `${baseUrl}/api/user/login`;
 
 function Login() {
   const navigate = useNavigate();
